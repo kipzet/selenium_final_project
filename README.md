@@ -1,1 +1,1 @@
-# selenium_final_project
+# Финальный проект по курсу Silenium
