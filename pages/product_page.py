@@ -24,3 +24,10 @@ class ProductPage(BasePage):
         price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE)
         added_price = self.browser.find_element(*ProductPageLocators.ADDED_PRODUCT_PRICE)
         assert price.text == added_price.text, 'Prices is not equal'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Message still on page"
