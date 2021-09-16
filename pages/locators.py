@@ -22,3 +22,9 @@ class ProductPageLocators():
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
     ADDED_PRODUCT_PRICE = (By.CSS_SELECTOR, "#messages .alert:nth-child(3) strong")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert:nth-child(1)")
+
+
+class BasketPageLocators():
+    BASKET_LINK = (By.CSS_SELECTOR, ".basket-mini .btn-group a")
+    EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+    PRODUCTS_IN_BASKET = (By.ID, "basket_formset")

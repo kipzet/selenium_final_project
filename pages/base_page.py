@@ -4,6 +4,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
+from .locators import BasketPageLocators
 import math
 
 
@@ -37,7 +38,7 @@ class BasePage():
         except NoAlertPresentException:
             print("No second alert presented")
 
-    def is_not_element_present(self, how, what, timeout=10):
+    def is_not_element_present(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
@@ -45,7 +46,7 @@ class BasePage():
 
         return False
 
-    def is_disappeared(self, how, what, timeout=10):
+    def is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException). \
                 until_not(EC.presence_of_element_located((how, what)))
@@ -60,3 +61,7 @@ class BasePage():
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasketPageLocators.BASKET_LINK)
+        link.click()
