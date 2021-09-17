@@ -8,7 +8,7 @@ import time
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
-        link = f'http://selenium1py.pythonanywhere.com/accounts/login/'
+        link = f"http://selenium1py.pythonanywhere.com/accounts/login/"
         email = str(time.time()) + "@fakemail.org"
         password = '54321ytrewq'
         page = LoginPage(browser, link)
@@ -25,7 +25,7 @@ class TestUserAddToBasketFromProductPage():
         product.should_be_added_product()
 
     def test_user_cant_see_success_message(self, browser):
-        link = f"http://selenium1py.pythonanywhere.com/ru/catalogue/hacking-exposed-wireless_208/"
+        link = f"http://selenium1py.pythonanywhere.com/catalogue/hacking-exposed-wireless_208/"
         product = ProductPage(browser, link)
         product.open()
         product.should_not_be_success_message()
